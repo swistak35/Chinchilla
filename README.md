@@ -17,5 +17,6 @@ Maybe you need to `chmod +x chinchilla` to run.
 
 ToDo
 ------------
-Pressing `Return` sends a message.
++ Pressing `Return` sends a message.
++ Quitting message
 

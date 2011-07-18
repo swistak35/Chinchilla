@@ -49,7 +49,7 @@ class Chinchilla
     @chat_browser.geometry = Qt::Rect.new 5, 380, 570, 130
     @chat_browser.setOverwriteMode false
     def @chat_browser.addText(text)
-      setPlainText plainText+text+"\n"
+      setPlainText text+"\n"+plainText
     end
     
     @nick_label = Qt::Label.new self

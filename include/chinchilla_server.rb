@@ -64,7 +64,7 @@ class ChinchillaServer < Qt::Widget
   
   def receiveData(clientId)
     line = @users[clientId].socket.readLine.to_s
-    puts line
+    #puts line
     
     if line =~ /^j\|.+$/
       @users[clientId].nick = line.scan(/^j\|(.+)$/).first.first

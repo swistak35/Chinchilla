@@ -19,7 +19,7 @@ class Chinchilla
   
   def receiveData
     line = @socket.readLine.to_s
-    puts line
+    #puts line
     
     if line =~ /^c\|.+\|.+$/
       chat = line.scan(/^c\|(.+)\|(.+)$/).first
