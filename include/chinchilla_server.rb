@@ -43,6 +43,9 @@ class ChinchillaServer < Qt::Widget
     @users[clientId].socket.connect(SIGNAL :readyRead) {
       receiveData(clientId)
     }
+    @users[clientId].socket.connect(SIGNAL :disconnected) {
+      addToChat 0, "User [#{@users[clientId].nick}] left Chinchilla."
+    }
   end
   
   def sendData clientId, data
