@@ -16,6 +16,12 @@ class ChinchillaServer < Qt::Widget
     @server = Qt::TcpServer.new self
     @server.listen(Qt::HostAddress.new(Qt::HostAddress::Any), @port)
     Qt::Object.connect(@server, SIGNAL('newConnection()'), self, SLOT('serve()'))
+    
+    if @server.isListening
+      $chinchilla.status_label.text = "Server working on:\nIP: #{}\nPort: #{@server.serverPort}"
+    else
+      $chinchilla.status_label.text = "Server doesn't work."
+    end
   end
   
   def initVars
@@ -25,7 +31,7 @@ class ChinchillaServer < Qt::Widget
     @users[0].nick = "System"
     
     @currentClientId = 0
-    @chat = [""]
+    @chat = []
   end
   
   def serve

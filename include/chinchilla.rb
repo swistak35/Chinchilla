@@ -1,6 +1,8 @@
 class Chinchilla < Qt::Widget 
   slots 'sendChat()', 'sendJoinMessage()', 'receiveData()', 'serve()'
   
+  attr_accessor :status_label
+  
   def initialize 
     super
     setWindowTitle "Chinchilla"

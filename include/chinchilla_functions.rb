@@ -7,6 +7,9 @@ class Chinchilla
   end
   
   def sendJoinMessage
+    unless server?
+      @status_label.text = "Connected to:\nHost: #{@host}\nPort: #{@port}"
+    end
     sendData "j|#{@nick}"
   end
   

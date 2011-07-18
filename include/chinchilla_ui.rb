@@ -42,6 +42,9 @@ class Chinchilla
     @button_clear.text = "clear".upcase
     Qt::Object.connect(@button_clear, SIGNAL('clicked()'), @drawing_area, SLOT('clear()'))
     
+    @status_label = Qt::Label.new self
+    @status_label.geometry = Qt::Rect.new 580, 130, 205, 45
+    
     @chat_browser = Qt::TextBrowser.new self
     @chat_browser.geometry = Qt::Rect.new 5, 380, 570, 130
     @chat_browser.setOverwriteMode false
