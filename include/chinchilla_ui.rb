@@ -62,5 +62,10 @@ class Chinchilla
     @chat_button.geometry = Qt::Rect.new 470, 515, 100, 30
     @chat_button.text = "Send"
     Qt::Object.connect(@chat_button, SIGNAL('clicked()'), self, SLOT('sendChat()'))
+    
+    @action_send = Qt::Action.new self
+    @action_send.setShortcut("Return");
+    Qt::Object.connect(@action_send, SIGNAL('triggered()'), @chat_button, SLOT('click()'))
+    self.addAction @action_send
   end
 end

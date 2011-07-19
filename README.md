@@ -17,5 +17,5 @@ Maybe you need to `chmod +x chinchilla` to run.
 
 ToDo
 ------------
-+ Pressing `Return` sends a message.
++ Add violet color.
 

@@ -1,5 +1,6 @@
 class Chinchilla
   def sendChat
+    puts "dupa"
     unless @chat_entry.text.empty?
       sendData "c|#{@chat_entry.text}"
       @chat_entry.text = ""
