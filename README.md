@@ -14,8 +14,13 @@ Simply run ./chinchilla.
 
 Maybe you need to `chmod +x chinchilla` to run.
 
+Troubleshooting
+------------
+If you have Error::ERRNO error, try removing config directory by `rm -rf ~/.config/chinchilla` : )
 
 ToDo
 ------------
 + Add violet color.
++ Add logs
++ Add screenshot button (?)
 
