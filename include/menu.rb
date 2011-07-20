@@ -14,25 +14,50 @@ class Menu < Qt::Widget
   end
   
   def loadUserConfig
-    homeDir = Dir.home
-    
-    unless Dir.exist? "#{homeDir}/.config"
-      Dir.mkdir "#{homeDir}/.config"
+    @homeDir = Dir.home
+    begin
+      creatingFileConfig
+      creatingFileConfigChinchilla
+      creatingFileConfigChinchillaLogs
+      creatingFileConfigChinchillaConfig    
+    rescue Errno::ENOENT
+      clearConfigDir
+      configByDefaultConfig
     end
-    
-    unless Dir.exist? "#{homeDir}/.config/chinchilla"
-      Dir.mkdir "#{homeDir}/.config/chinchilla"
+  end
+  
+  def clearConfigDir
+    %x[rm -rf ~/.config/chinchilla]
+  end
+  
+  def creatingFileConfig
+    unless Dir.exist? "#{@homeDir}/.config"
+      Dir.mkdir "#{@homeDir}/.config"
     end
-    
+  end
+  
+  def creatingFileConfigChinchilla
+    unless Dir.exist? "#{@homeDir}/.config/chinchilla"
+      Dir.mkdir "#{@homeDir}/.config/chinchilla"
+    end
+  end
+  
+  def creatingFileConfigChinchillaLogs
     unless Dir.exist? "#{homeDir}/.config/chinchilla/logs"
       Dir.mkdir "#{homeDir}/.config/chinchilla/logs"
     end
-    
+  end
+  
+  def configByDefaultConfig
+    @nickname.text = "Guest"+rand(1000).to_s
+    @host.text = "localhost"
+    @port.text = "1234"
+  end
+  
+  def creatingFileConfigChinchillaConfig
     unless File.exist? "#{homeDir}/.config/chinchilla/config"
       File.new "#{homeDir}/.config/chinchilla/config", "w"
-      @nickname.text = "Guest"+rand(1000).to_s
-      @host.text = "localhost"
-      @port.text = "1234"
+      configByDefaultConfig
     else
       File.open "#{homeDir}/.config/chinchilla/config", "r" do |f|
         @nickname.text = f.readline.chop
@@ -43,10 +68,14 @@ class Menu < Qt::Widget
   end
   
   def saveUserConfig
-    File.open "#{Dir.home}/.config/chinchilla/config", "w" do |f|
-      f.puts @nickname.text
-      f.puts @host.text
-      f.puts @port.text
+    begin
+      File.open "#{Dir.home}/.config/chinchilla/config", "w" do |f|
+        f.puts @nickname.text
+        f.puts @host.text
+        f.puts @port.text
+      end
+    rescue Errno::ENOENT
+      clearConfigDir
     end
   end
 

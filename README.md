@@ -16,7 +16,7 @@ Maybe you need to `chmod +x chinchilla` to run.
 
 Troubleshooting
 ------------
-If you have Error::ERRNO error, try removing config directory by `rm -rf ~/.config/chinchilla` : )
+If you have Errno::ENOENT error, try removing config directory by `rm -rf ~/.config/chinchilla` : )
 
 ToDo
 ------------
