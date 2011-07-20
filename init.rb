@@ -1,5 +1,4 @@
 require 'Qt'
-require 'net/telnet'
 
 load 'include/drawingarea.rb'
 load 'include/chinchilla.rb'
