@@ -43,8 +43,8 @@ class Menu < Qt::Widget
   end
   
   def creatingFileConfigChinchillaLogs
-    unless Dir.exist? "#{homeDir}/.config/chinchilla/logs"
-      Dir.mkdir "#{homeDir}/.config/chinchilla/logs"
+    unless Dir.exist? "#{@homeDir}/.config/chinchilla/logs"
+      Dir.mkdir "#{@homeDir}/.config/chinchilla/logs"
     end
   end
   
@@ -55,11 +55,11 @@ class Menu < Qt::Widget
   end
   
   def creatingFileConfigChinchillaConfig
-    unless File.exist? "#{homeDir}/.config/chinchilla/config"
-      File.new "#{homeDir}/.config/chinchilla/config", "w"
+    unless File.exist? "#{@homeDir}/.config/chinchilla/config"
+      File.new "#{@homeDir}/.config/chinchilla/config", "w"
       configByDefaultConfig
     else
-      File.open "#{homeDir}/.config/chinchilla/config", "r" do |f|
+      File.open "#{@homeDir}/.config/chinchilla/config", "r" do |f|
         @nickname.text = f.readline.chop
         @host.text = f.readline.chop
         @port.text = f.readline.chop
@@ -69,7 +69,7 @@ class Menu < Qt::Widget
   
   def saveUserConfig
     begin
-      File.open "#{Dir.home}/.config/chinchilla/config", "w" do |f|
+      File.open "#{@homeDir}/.config/chinchilla/config", "w" do |f|
         f.puts @nickname.text
         f.puts @host.text
         f.puts @port.text
