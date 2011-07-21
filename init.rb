@@ -1,7 +1,6 @@
 require 'Qt'
 
 
-load 'include/violet.rb'
 load 'include/drawingarea.rb'
 load 'include/chinchilla.rb'
 load 'include/chinchilla_ui.rb'
