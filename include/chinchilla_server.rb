@@ -4,6 +4,7 @@ class ChinchillaServer < Qt::Widget
   
   def initialize
     super
+    @logFile = File.new("#{Dir.home}/.config/chinchilla/logs/#{Time.now.strftime "%Y-%m-%d_%H:%M:%S"}.log", "w")
   end
   
   def set(port)
@@ -84,6 +85,8 @@ class ChinchillaServer < Qt::Widget
   def addToChat(clientId, msg)
     @chat << {user: clientId, text: msg}
     update_chat
+    @logFile.puts "<#{@users[clientId].nick}>: #{msg}"
+    @logFile.flush
   end
   
   def update_chat

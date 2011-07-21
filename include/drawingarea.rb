@@ -56,7 +56,7 @@ class DrawingArea < Qt::Widget
   end
   
   def drawLineFromTo(beginPoint_x, beginPoint_y, endPoint_x, endPoint_y, penColor, penWidth)
-    #puts "Drawing line from (#{beginPoint_x}/#{beginPoint_y}) to (#{endPoint_x}/#{endPoint_y}) with #{penColor} color and width #{penWidth}"
+    puts "Drawing line from (#{beginPoint_x}/#{beginPoint_y}) to (#{endPoint_x}/#{endPoint_y}) with #{penColor} color and width #{penWidth}"
     beginPoint = Qt::Point.new beginPoint_x.to_i, beginPoint_y.to_i
     endPoint = Qt::Point.new endPoint_x.to_i, endPoint_y.to_i
     
