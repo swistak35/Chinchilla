@@ -7,11 +7,7 @@ module Qt
   class Color
     def initialize(color)
       super
-      if color == 1
-        puts "dupa"
-        setRgb 93, 0, 93
-      end
-      puts "jajco"
+      setRgb 93, 0, 93 if color == 1
     end
   end
 end
