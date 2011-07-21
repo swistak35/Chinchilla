@@ -26,6 +26,5 @@ Fortunately, this section is empty. There aren't problems in using Chinchilla. :
 
 ToDo
 ------------
-+ Add violet color.
 + Add screenshot button (?)
 

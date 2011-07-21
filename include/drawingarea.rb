@@ -3,7 +3,7 @@ class DrawingArea < Qt::Widget
   
   slots 'myPenWidthChange(int)', 'clear()'
   
-  COLORS = [:red, :yellow, :green, :blue, :magenta, :black]
+  COLORS = [:red, :yellow, :green, :blue, :violet, :black]
   
   def initialize(parent, rectangle) 
     super(parent)
@@ -61,7 +61,7 @@ class DrawingArea < Qt::Widget
     endPoint = Qt::Point.new endPoint_x.to_i, endPoint_y.to_i
     
     painter = Qt::Painter.new @image
-    painter.setPen(Qt::Pen.new(Qt::Brush.new(penColor.to_i), penWidth.to_i, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin))
+    painter.setPen(Qt::Pen.new(Qt::Brush.new(Qt::Color.new(penColor.to_i)), penWidth.to_i, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin))
     painter.drawLine beginPoint, endPoint 
     
     rad = @myPenWidth / 2 + 2;
