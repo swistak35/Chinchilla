@@ -19,18 +19,32 @@ class Chinchilla
   def initUI
     @drawing_area = DrawingArea.new self, Qt::Rect.new(5, 5, 570, 370)
     
-    for i in 0..(DrawingArea::COLORS.count-1)
+    #i = 0
+    #DrawingArea::COLORS.each do |name, value|
+      #eval %Q{
+        #@button_#{name.to_s} = Qt::PushButton.new self
+        #@button_#{name.to_s}.geometry = Qt::Rect.new(#{580 + 105 * (i%2)}, #{155 + (i/2)*25}, 100, 20)
+        #@button_#{name.to_s}.text = "#{name.to_s.capitalize}"
+        #Qt::Object.connect(@button_#{name.to_s}, SIGNAL('clicked()'),
+                           #@drawing_area, SLOT('myPenColorChangeTo#{name.to_s.capitalize}()'))
+      #}
+      #i += 1
+    #end
+    
+    colors = DrawingArea::COLORS
+    for i in 0..(colors.count-1) do
       eval %Q{
-        @button_#{DrawingArea::COLORS[i].to_s} = Qt::PushButton.new self
-        @button_#{DrawingArea::COLORS[i].to_s}.geometry = Qt::Rect.new(#{580 + 105 * (i%2)}, #{5 + (i/2)*25}, 100, 20)
-        @button_#{DrawingArea::COLORS[i].to_s}.text = "#{DrawingArea::COLORS[i].to_s.capitalize}"
-        Qt::Object.connect(@button_#{DrawingArea::COLORS[i].to_s}, SIGNAL('clicked()'),
-                           @drawing_area, SLOT('myPenColorChangeTo#{DrawingArea::COLORS[i].to_s.capitalize}()'))
+        @button_#{colors[i][:name].to_s} = Qt::PushButton.new self
+        @button_#{colors[i][:name].to_s}.geometry = Qt::Rect.new(#{580 + 105 * (i%2)}, #{155 + (i/2)*25}, 100, 20)
+        @button_#{colors[i][:name].to_s}.text = "#{colors[i][:name].to_s.capitalize}"
+        Qt::Object.connect(@button_#{colors[i][:name].to_s}, SIGNAL('clicked()'),
+                           @drawing_area, SLOT('myPenColorChangeTo#{colors[i][:name].to_s.capitalize}()'))
       }
     end
     
+    
     @brush_spinbox = Qt::SpinBox.new self
-    @brush_spinbox.geometry = Qt::Rect.new 580, 80, 100, 45
+    @brush_spinbox.geometry = Qt::Rect.new 580, 105, 100, 45
     @brush_spinbox.minimum = 1
     @brush_spinbox.maximum = 20
     @brush_spinbox.prefix = "Brush"+":  "
@@ -38,12 +52,12 @@ class Chinchilla
     @brush_spinbox.value = 2
     
     @button_clear = Qt::PushButton.new self
-    @button_clear.geometry = Qt::Rect.new 685, 80, 100, 45
+    @button_clear.geometry = Qt::Rect.new 685, 105, 100, 45
     @button_clear.text = "clear".upcase
     Qt::Object.connect(@button_clear, SIGNAL('clicked()'), @drawing_area, SLOT('clear()'))
     
     @status_label = Qt::Label.new self
-    @status_label.geometry = Qt::Rect.new 580, 130, 205, 45
+    @status_label.geometry = Qt::Rect.new 580, 5, 205, 45
     
     @chat_browser = Qt::TextBrowser.new self
     @chat_browser.geometry = Qt::Rect.new 5, 380, 570, 130

@@ -3,7 +3,16 @@ class DrawingArea < Qt::Widget
   
   slots 'myPenWidthChange(int)', 'clear()'
   
-  COLORS = [:red, :yellow, :green, :blue, :violet, :black]
+  COLORS =  [
+              {name: "black", code: "#000000"},
+              {name: "red", code: "#FF0000"},
+              {name: "green", code: "#00FF00"},
+              {name: "blue", code: "#0000FF"},
+              {name: "cyan", code: "#00FFFF"},
+              {name: "magenta", code: "#FF00FF"},
+              {name: "yellow", code: "#FFFF00"},
+              {name: "violet", code: "#5D005D"},
+            ]
   
   def initialize(parent, rectangle) 
     super(parent)
@@ -13,7 +22,7 @@ class DrawingArea < Qt::Widget
     @image = Qt::Image.new(width,height,Qt::Image::Format_RGB16)
     @image.fill qRgb(255, 255, 255)
     @myPenWidth = 0
-    @myPenColor = Qt::black
+    @myPenColor = 0
     @lastPoint = Qt::Point.new 0, 0
     
     @parent = parent
@@ -61,7 +70,7 @@ class DrawingArea < Qt::Widget
     endPoint = Qt::Point.new endPoint_x.to_i, endPoint_y.to_i
     
     painter = Qt::Painter.new @image
-    painter.setPen(Qt::Pen.new(Qt::Brush.new(Qt::Color.new(penColor.to_i)), penWidth.to_i, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin))
+    painter.setPen(Qt::Pen.new(Qt::Brush.new(Qt::Color.new(COLORS[penColor.to_i][:code])), penWidth.to_i, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin))
     painter.drawLine beginPoint, endPoint 
     
     rad = @myPenWidth / 2 + 2;
@@ -84,11 +93,11 @@ class DrawingArea < Qt::Widget
     clearing
   end
   
-  COLORS.each do |color|
+  COLORS.each_with_index do |color, index|
     eval %Q{
-      slots :myPenColorChangeTo#{color.to_s.capitalize}
-      def myPenColorChangeTo#{color.to_s.capitalize}
-        @myPenColor = Qt::#{color.to_s}
+      slots :myPenColorChangeTo#{color[:name].to_s.capitalize}
+      def myPenColorChangeTo#{color[:name].to_s.capitalize}
+        @myPenColor = #{index.to_s}
       end
     }
   end
