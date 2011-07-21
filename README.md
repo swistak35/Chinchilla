@@ -1,10 +1,12 @@
 Chinchilla
 ============
 
+
 Requirements
 ------------
 + gem qtbindings (tested on 4.6.3.2)
 + ruby (tested on 1.9.2)
+
 
 Installation
 ------------
@@ -14,13 +16,16 @@ Simply run ./chinchilla.
 
 Maybe you need to `chmod +x chinchilla` to run.
 
+If you search logs, they are in ~/.config/chinchilla/logs (only on server's computer!)
+
+
 Troubleshooting
 ------------
-If you have Errno::ENOENT error, try removing config directory by `rm -rf ~/.config/chinchilla` : )
+Fortunately, this section is empty. There aren't problems in using Chinchilla. : )
+
 
 ToDo
 ------------
 + Add violet color.
-+ Add logs
 + Add screenshot button (?)
 
