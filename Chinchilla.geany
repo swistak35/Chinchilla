@@ -16,7 +16,7 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
+current_page=9
 FILE_NAME_0=73;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/include/chinchilla.rb;0;2
 FILE_NAME_1=929;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/include/chinchilla_server.rb;0;2
 FILE_NAME_2=2298;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/include/drawingarea.rb;0;2
@@ -26,9 +26,7 @@ FILE_NAME_5=31;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/include/chinc
 FILE_NAME_6=2715;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/include/chinchilla_ui.rb;0;2
 FILE_NAME_7=117;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/include/user.rb;0;2
 FILE_NAME_8=301;None;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/README.md;0;2
-FILE_NAME_9=0;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Tucotuco/windows/main.rb;0;2
-FILE_NAME_10=715;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Tucotuco/includes/database.rb;0;2
-FILE_NAME_11=12;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/init.rb;0;2
+FILE_NAME_9=44;Ruby;0;16;0;1;0;/home/swistak35/Projekty/Chinchilla/init.rb;0;2
 
 [build-menu]
 EX_00_LB=_Wykonaj
