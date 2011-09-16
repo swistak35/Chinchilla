@@ -1,13 +1,16 @@
+.body {
+color: #b08758;
+background-color: #8657AF;
+}
+
 #main {
 margin-left: auto;
 margin-right: auto;
 width: 700px;
-background-color: #8657AF;
-color: #b08758;
 }
 
 a {
-color: black;
+color: #b08758;
 }
 
 #name {
