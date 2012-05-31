@@ -58,6 +58,7 @@ class Menu < Qt::Widget
     unless File.exist? "#{@homeDir}/.config/chinchilla/config"
       File.new "#{@homeDir}/.config/chinchilla/config", "w"
       configByDefaultConfig
+      saveUserConfig
     else
       File.open "#{@homeDir}/.config/chinchilla/config", "r" do |f|
         @nickname.text = f.readline.chop
