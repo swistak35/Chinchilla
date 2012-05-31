@@ -24,3 +24,15 @@ font-size: 50pt;
 #footer {
 text-align: center;
 }
+
+#main a h3 {
+  -webkit-translation: all 0.2s ease-in-out;
+  -moz-translation: all 0.2s ease-in-out;
+  translation: all 0.2s ease-in-out;
+}
+
+#main a h3:hover {
+  -webkit-transform: rotate(10deg) scale(1.2) translate(10px, 0);
+  -moz-transform: rotate(10deg) scale(1.2) translate(10px, 0);
+  transform: rotate(10deg) scale(1.2) translate(10px, 0);
+}
